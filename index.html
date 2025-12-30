@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=390, height=844, initial-scale=1.0">
+    <title>Bura Beauty Clinic</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- HEADER (Global) -->
+    <header class="header-mini">
+        <div class="logo-text">BURA<span class="light">BEAUTY</span></div>
+        <a href="https://maps.google.com" target="_blank" class="location-btn">
+            <i class="fa-solid fa-map-pin"></i>
+            <span class="dot"></span>
+            <span>London</span>
+        </a>
+    </header>
+
+    <!-- VIEW 1: HOME -->
+    <div id="view-home" class="view">
+
+        <!-- MARQUEE (Now Here) -->
+        <div class="promo-banner">
+            <div class="marquee-track">
+                <span>✨ FIRST VISIT %10 DISCOUNT ✨ BOOK ONLINE NOW ✨ FIRST VISIT %10 DISCOUNT ✨ BOOK ONLINE NOW ✨</span>
+                <span>✨ FIRST VISIT %10 DISCOUNT ✨ BOOK ONLINE NOW ✨ FIRST VISIT %10 DISCOUNT ✨ BOOK ONLINE NOW ✨</span>
+            </div>
+        </div>
+
+        <!-- HERO -->
+        <section class="home-hero">
+            <div class="hero-content">
+                <!-- Gradient Image Placeholder (No Text) -->
+                <div class="hero-img-placeholder"></div>
+                <h1 class="hero-title">Premium Aesthetic & Beauty Clinic</h1>
+                <p class="hero-sub">Natural results with modern techniques and expert care.</p>
+                <button class="btn-hero" onclick="goToBooking()">View Services</button>
+            </div>
+        </section>
+
+        <!-- 2. PHILOSOPHY -->
+        <section class="philosophy-panel">
+            <h3 class="section-label">PHILOSOPHY</h3>
+            <p class="philo-text">
+                Subtle, <span class="highlight">natural-looking</span> enhancements that respect your features and
+                long-term skin health.
+            </p>
+            <p class="philo-text" style="margin-top:10px; font-size:0.85rem; opacity:0.7;">
+                Treatments are personalised after a professional consultation.
+            </p>
+        </section>
+
+        <!-- 3. TRUST (Rated) -->
+        <section class="trust-panel">
+            <div class="stars">★★★★★ <span style="color:#888;">4.9</span></div>
+            <p class="trust-text">Rated by 500+ real clients</p>
+            <ul class="trust-list">
+                <li><i class="fa-solid fa-check"></i> Certified specialists</li>
+                <li><i class="fa-solid fa-check"></i> Medical-grade products</li>
+                <li><i class="fa-solid fa-check"></i> Results-focused approach</li>
+            </ul>
+        </section>
+
+        <!-- 4. LATEST RESULTS -->
+        <section class="home-results">
+            <h3 class="section-label">LATEST RESULTS</h3>
+            <div class="results-grid">
+                <div class="res-item g1"></div>
+                <div class="res-item g2"></div>
+                <div class="res-item g3"></div>
+                <div class="res-item g4"></div>
+            </div>
+        </section>
+
+        <!-- 5. CTA BOTTOM -->
+        <section class="final-cta-sec">
+            <p class="final-label">Ready to choose your treatment?</p>
+            <button class="btn-hero btn-secondary" onclick="goToBooking()">View Services</button>
+        </section>
+
+        <!-- 6. INFO (Moved here) -->
+        <section class="info-panel">
+            <div class="info-row"><i class="fa-solid fa-location-dot"></i> London, UK</div>
+            <div class="info-row"><i class="fa-regular fa-clock"></i> Mon-Sat • 10:00–19:00</div>
+            <div class="info-row"><i class="fa-solid fa-phone"></i> By appointment only</div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="home-footer">
+            <div class="social-row">
+                <a href="#">Instagram</a> • <a href="#">WhatsApp</a> • <a href="#">Telephone</a>
+            </div>
+            <p class="copyright">© Bura Beauty Clinic</p>
+        </footer>
+    </div>
+
+
+    <!-- VIEW 2: BOOKING (Hidden by default) -->
+    <div id="view-booking" class="view" style="display:none;">
+
+        <!-- Marquee Removed from here -->
+
+        <!-- FILTER -->
+        <nav class="category-filter">
+            <div class="filter-track">
+                <div class="filter-chip active" data-cat="popular">Most Popular</div>
+                <div class="filter-chip" data-cat="nails">Nails</div>
+                <div class="filter-chip" data-cat="face">Face</div>
+                <div class="filter-chip" data-cat="hair">Hair</div>
+                <div class="filter-chip" data-cat="hair_removal">Hair Removal</div>
+                <div class="filter-chip" data-cat="medical">Medical & Dental</div>
+            </div>
+        </nav>
+
+        <!-- MAIN DECK -->
+        <main class="featured-deck">
+            <div class="deck-track" id="card-container">
+                <!-- JS will populate -->
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer-mini">
+            <a href="#" class="footer-icon"><i class="fa-brands fa-instagram"></i></a>
+            <!-- HOME BUTTON ADDED -->
+            <div class="footer-icon" onclick="goToHome()" style="cursor: pointer;"><i class="fa-solid fa-house"></i>
+            </div>
+            <a href="#" class="footer-icon"><i class="fa-brands fa-whatsapp"></i></a>
+        </footer>
+    </div>
+
+
+    <!-- MODAL -->
+    <div id="modal" class="modal-overlay">
+        <div class="modal-inner">
+            <div class="modal-header">
+                <div>
+                    <h2 id="m-title" style="font-size:1.4rem; color:#fff;">Title</h2>
+                    <p id="m-subtitle" style="color:#888; font-size:0.9rem;">Subtitle</p>
+                </div>
+                <button onclick="closeModal()" class="modal-close-btn">&times;</button>
+            </div>
+
+            <div class="modal-scroll">
+                <p
+                    style="padding:0 28px; margin-top:24px; color:#666; font-size:0.8rem; text-transform:uppercase; letter-spacing:1px;">
+                    Latest Results</p>
+                <div class="proof-slider">
+                    <div class="proof-slide g1" onclick="openLight('g1')"></div>
+                    <div class="proof-slide g2" onclick="openLight('g2')"></div>
+                    <div class="proof-slide g3" onclick="openLight('g3')"></div>
+                    <div class="proof-slide g4" onclick="openLight('g4')"></div>
+                </div>
+
+                <div class="section-block">
+                    <h3 class="section-heading">Description</h3>
+                    <p id="m-desc" style="color:#999; line-height:1.6; font-size:0.95rem;"></p>
+                </div>
+
+                <div class="price-row">
+                    <span class="price-label">Starting from</span>
+                    <span id="m-price" class="price-value">£--</span>
+                </div>
+
+                <div class="review-card">
+                    <div class="stars">★★★★★ <span style="color:#888; font-size:0.8em; margin-left:4px;">4.9</span>
+                    </div>
+                    <p class="review-text">“Absolutely the best experience I've had. The attention to detail is
+                        unmatched and the results are amazing!”</p>
+                    <p class="review-author">— Happy Client</p>
+                </div>
+                <div style="height:20px;"></div>
+            </div>
+
+            <div class="modal-cta">
+                <button class="btn-book">Book Appointment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" onclick="closeLight()">&times;</button>
+        <div id="lb-target" class="lightbox-img"></div>
+    </div>
+
+    <script>
+        // --- NAVIGATION ---
+        function goToBooking() {
+            document.getElementById('view-home').style.display = 'none';
+            document.getElementById('view-booking').style.display = 'flex'; // App Mode
+        }
+
+        // Return to Home
+        function goToHome() {
+            document.getElementById('view-booking').style.display = 'none';
+            document.getElementById('view-home').style.display = 'block';
+        }
+
+        // --- DATA ---
+        const servicesDB = {
+            popular: [
+                { title: "Deep Cleanse & Lift Facial", sub: "Signature Treatment", price: "£85", desc: "A powerful deep cleansing facial combined with lifting techniques to rejuvenate loose skin and clear impurities.", gradient: "g1" },
+                { title: "Hair Filler Treatment", sub: "Mesotherapy DR CYJ", price: "£150", desc: "Innovative peptide complex filler designed to stop hair loss and stimulate hair regrowth by promoting blood circulation.", gradient: "g2" },
+                { title: "Gel Manicure", sub: "Full Service", price: "£50", desc: "Includes precise cuticle work, shaping, and long-lasting premium gel polish application.", gradient: "g3" },
+                { title: "1-hour Classic Massage", sub: "Relaxation", price: "£90", desc: "A full-hour classic massage session designed to relieve stress, improve circulation, and relax muscles.", gradient: "g4" }
+            ],
+            nails: [
+                { title: "Manicure", sub: "Classic Care", price: "£35", desc: "Essential nail care including shaping, cuticle maintenance, and a buff or regular polish finish.", gradient: "g1" },
+                { title: "Gel Manicure", sub: "Long Lasting", price: "£50", desc: "Includes precise cuticle work, shaping, and long-lasting premium gel polish application.", gradient: "g3" },
+                { title: "Pedicure", sub: "Complete Foot Care", price: "£55", desc: "Comprehensive foot treatment with soaking, exfoliation, cuticle work, and polish.", gradient: "g2" }
+            ],
+            face: [
+                { title: "Power Duos", sub: "Combo Treatment", price: "£120", desc: "The ultimate combination of two powerful facial treatments for enhanced radiance and anti-aging results.", gradient: "g4" },
+                { title: "CACI Treatments", sub: "Non-Surgical Lift", price: "£95", desc: "Advanced microcurrent treatment to tone, lift and re-educate facial muscles for a youthful look.", gradient: "g1" },
+                { title: "Eyebrow & Eyelash", sub: "Tint & Shape", price: "£45", desc: "Professional shaping and tinting to define your eyes and enhance your natural facial features.", gradient: "g2" },
+                { title: "Facials", sub: "Customized", price: "£80", desc: "Tailored facial treatments targeting your specific skin concerns using premium products.", gradient: "g3" },
+                { title: "Cosmetic Injectables", sub: "Consultation Required", price: "£200", desc: "Expertly administered injectables for anti-aging and facial contouring. Consultation required.", gradient: "g4" }
+            ],
+            hair: [
+                { title: "Hair Filler Treatment", sub: "Mesotherapy DR CYJ", price: "£150", desc: "Innovative peptide complex filler designed to stop hair loss and stimulate hair regrowth.", gradient: "g2" }
+            ],
+            hair_removal: [
+                { title: "Ladies' Face Hot Waxing", sub: "Gentle Removal", price: "£25", desc: "Gentle hot wax removal for facial hair, leaving smooth and sensitive skin protected.", gradient: "g1" },
+                { title: "Ladies' Body Strip Waxing", sub: "Smooth Results", price: "£40", desc: "Efficient strip waxing for larger body areas, ensuring long-lasting smooth results.", gradient: "g3" },
+                { title: "Ladies' Body Hot Waxing", sub: "No Double Dipping", price: "£55", desc: "Premium hot wax treatment for sensitive areas, strictly adhering to hygiene standards (No double dipping).", gradient: "g2" },
+                { title: "Men's Strip Waxing", sub: "Back & Chest", price: "£50", desc: "Efficient hair removal for men designed to minimize discomfort and provide clean results.", gradient: "g4" }
+            ],
+            medical: [
+                { title: "Skin Boosters", sub: "Hydration Injection", price: "£250", desc: "Deep hydration treatment to improve skin elasticity, firmness and radiance from within.", gradient: "g1" },
+                { title: "Cosmetic Injectables", sub: "Anti-Wrinkle", price: "£200", desc: "Reduce the appearance of fine lines and wrinkles with precision-administered treatments.", gradient: "g2" },
+                { title: "Cosmetic Injectable & Treatments", sub: "Advanced Aesthetics", price: "£300", desc: "A comprehensive range of advanced medical aesthetic treatments for various skin conditions.", gradient: "g3" }
+            ]
+        };
+
+        const container = document.getElementById('card-container');
+        const filters = document.querySelectorAll('.filter-chip');
+        const modal = document.getElementById('modal');
+        const mTitle = document.getElementById('m-title');
+        const mSub = document.getElementById('m-subtitle');
+        const mDesc = document.getElementById('m-desc');
+        const mPrice = document.getElementById('m-price');
+
+        // Initial 
+        renderCards('popular');
+
+        // Filter
+        filters.forEach(chip => {
+            chip.addEventListener('click', () => {
+                filters.forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+                renderCards(chip.dataset.cat);
+            });
+        });
+
+        function renderCards(category) {
+            container.innerHTML = '';
+            const services = servicesDB[category] || [];
+
+            services.forEach(s => {
+                const card = document.createElement('article');
+                card.className = 'service-card';
+                card.onclick = () => openModal(s);
+
+                card.innerHTML = `
+                    <div class="img-placeholder ${s.gradient}"></div>
+                    <div class="card-content">
+                        <h2 class="card-title">${s.title}</h2>
+                        <span class="sub-title">${s.sub}</span>
+                        <p class="card-desc">${s.desc}</p>
+                        <button class="btn-book btn-outline">View details & book</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            const spacer = document.createElement('div');
+            spacer.style.flex = '0 0 10px';
+            container.appendChild(spacer);
+        }
+
+        function openModal(serviceData) {
+            if (serviceData) {
+                mTitle.textContent = serviceData.title;
+                mSub.textContent = serviceData.sub;
+                mDesc.textContent = serviceData.desc;
+                mPrice.textContent = serviceData.price;
+            }
+            modal.classList.add('active');
+        }
+
+        function closeModal() { modal.classList.remove('active'); }
+
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lb-target');
+        function openLight(cls) {
+            lbImg.className = 'lightbox-img ' + cls;
+            lb.classList.add('active');
+        }
+        function closeLight() { lb.classList.remove('active'); }
+    </script>
+</body>
+
+</html>
